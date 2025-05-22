@@ -1,18 +1,18 @@
 {
     "name": "test/test-sdk",
-    "description": "TEST",
+    "description": "test",
     "type": "library",
     "keywords": [
         "SDK"
     ],
-    "homepage": "https://github.com/tahaali2000/testerrr-python-sdk",
+    "homepage": "https://app.dev.apimatic.io/Account/Login?ReturnUrl=%2Fdashboard",
     "license": [
         "MIT"
     ],
     "authors": [
         {
-            "name": "taha",
-            "email": "taha.ali@apimatic.io"
+            "name": "test",
+            "email": "tahaali2000@hotmail.com"
         }
     ],
     "support": {},
