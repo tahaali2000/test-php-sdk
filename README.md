@@ -12,23 +12,23 @@ Find out more here: [https://developer.paypal.com/docs/api/orders/v2/](https://d
 Run the following command to install the package and automatically add the dependency to your composer.json file:
 
 ```bash
-composer require "test/test-sdk:1.3.8"
+composer require "test/test-sdk:1.2.6"
 ```
 
 Or add it to the composer.json file manually as given below:
 
 ```json
 "require": {
-    "test/test-sdk": "1.3.8"
+    "test/test-sdk": "1.2.6"
 }
 ```
 
 You can also view the package at:
-https://packagist.org/packages/test/test-sdk#1.3.8
+https://packagist.org/packages/test/test-sdk#1.2.6
 
 ## Initialize the API Client
 
-**_Note:_** Documentation for the client can be found [here.](https://www.github.com/tahaali2000/test-php-sdk/tree/1.3.8/doc/client.md)
+**_Note:_** Documentation for the client can be found [here.](doc/client.md)
 
 The following parameters are configurable for the API Client:
 
@@ -44,9 +44,9 @@ The following parameters are configurable for the API Client:
 | retryOnTimeout | `bool` | Whether to retry on request timeout.<br>*Default*: `true` |
 | httpStatusCodesToRetry | `array` | Http status codes to retry against.<br>*Default*: `408, 413, 429, 500, 502, 503, 504, 521, 522, 524, 408, 413, 429, 500, 502, 503, 504, 521, 522, 524` |
 | httpMethodsToRetry | `array` | Http methods to retry against.<br>*Default*: `'GET', 'PUT', 'GET', 'PUT'` |
-| loggingConfiguration | [`LoggingConfigurationBuilder`](https://www.github.com/tahaali2000/test-php-sdk/tree/1.3.8/doc/logging-configuration-builder.md) | Represents the logging configurations for API calls |
-| proxyConfiguration | [`ProxyConfigurationBuilder`](https://www.github.com/tahaali2000/test-php-sdk/tree/1.3.8/doc/proxy-configuration-builder.md) | Represents the proxy configurations for API calls |
-| clientCredentialsAuth | [`ClientCredentialsAuth`](https://www.github.com/tahaali2000/test-php-sdk/tree/1.3.8/doc/auth/oauth-2-client-credentials-grant.md) | The Credentials Setter for OAuth 2 Client Credentials Grant |
+| loggingConfiguration | [`LoggingConfigurationBuilder`](doc/logging-configuration-builder.md) | Represents the logging configurations for API calls |
+| proxyConfiguration | [`ProxyConfigurationBuilder`](doc/proxy-configuration-builder.md) | Represents the proxy configurations for API calls |
+| clientCredentialsAuth | [`ClientCredentialsAuth`](__base_path/auth/oauth-2-client-credentials-grant.md) | The Credentials Setter for OAuth 2 Client Credentials Grant |
 
 The API client can be initialized as follows:
 
@@ -83,29 +83,29 @@ The SDK can be configured to use a different environment for making API calls. A
 
 This API uses the following authentication schemes.
 
-* [`Oauth2 (OAuth 2 Client Credentials Grant)`](https://www.github.com/tahaali2000/test-php-sdk/tree/1.3.8/doc/auth/oauth-2-client-credentials-grant.md)
+* [`Oauth2 (OAuth 2 Client Credentials Grant)`](__base_path/auth/oauth-2-client-credentials-grant.md)
 
 ## List of APIs
 
-* [Orders](https://www.github.com/tahaali2000/test-php-sdk/tree/1.3.8/doc/controllers/orders.md)
-* [Payments](https://www.github.com/tahaali2000/test-php-sdk/tree/1.3.8/doc/controllers/payments.md)
-* [Vault](https://www.github.com/tahaali2000/test-php-sdk/tree/1.3.8/doc/controllers/vault.md)
+* [Orders](doc/controllers/orders.md)
+* [Payments](doc/controllers/payments.md)
+* [Vault](doc/controllers/vault.md)
 
 ## SDK Infrastructure
 
 ### Configuration
 
-* [ProxyConfigurationBuilder](https://www.github.com/tahaali2000/test-php-sdk/tree/1.3.8/doc/proxy-configuration-builder.md)
-* [LoggingConfigurationBuilder](https://www.github.com/tahaali2000/test-php-sdk/tree/1.3.8/doc/logging-configuration-builder.md)
-* [RequestLoggingConfigurationBuilder](https://www.github.com/tahaali2000/test-php-sdk/tree/1.3.8/doc/request-logging-configuration-builder.md)
-* [ResponseLoggingConfigurationBuilder](https://www.github.com/tahaali2000/test-php-sdk/tree/1.3.8/doc/response-logging-configuration-builder.md)
+* [ProxyConfigurationBuilder](doc/proxy-configuration-builder.md)
+* [LoggingConfigurationBuilder](doc/logging-configuration-builder.md)
+* [RequestLoggingConfigurationBuilder](doc/request-logging-configuration-builder.md)
+* [ResponseLoggingConfigurationBuilder](doc/response-logging-configuration-builder.md)
 
 ### HTTP
 
-* [HttpRequest](https://www.github.com/tahaali2000/test-php-sdk/tree/1.3.8/doc/http-request.md)
-* [HttpResponse](https://www.github.com/tahaali2000/test-php-sdk/tree/1.3.8/doc/http-response.md)
+* [HttpRequest](doc/http-request.md)
+* [HttpResponse](doc/http-response.md)
 
 ### Utilities
 
-* [ApiException](https://www.github.com/tahaali2000/test-php-sdk/tree/1.3.8/doc/api-exception.md)
+* [ApiException](doc/api-exception.md)
 
