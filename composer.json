@@ -1,17 +1,17 @@
 {
     "name": "test/test-sdk",
-    "description": "TEst",
+    "description": "test",
     "type": "library",
     "keywords": [
-        "sdk"
+        "SDLC"
     ],
-    "homepage": "https://packagist.org/profile/",
+    "homepage": "https://github.com/tahaali2000/testerrr-python-sdk",
     "license": [
         "MIT"
     ],
     "authors": [
         {
-            "name": "taha",
+            "name": "tahaali",
             "email": "taha.ali@apimatic.io"
         }
     ],
