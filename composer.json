@@ -1,18 +1,18 @@
 {
     "name": "test/test-sdk",
-    "description": "test",
+    "description": "TEst",
     "type": "library",
     "keywords": [
-        "SDK"
+        "sdk"
     ],
-    "homepage": "https://app.dev.apimatic.io/Account/Login?ReturnUrl=%2Fdashboard",
+    "homepage": "https://packagist.org/profile/",
     "license": [
         "MIT"
     ],
     "authors": [
         {
-            "name": "test",
-            "email": "tahaali2000@hotmail.com"
+            "name": "taha",
+            "email": "taha.ali@apimatic.io"
         }
     ],
     "support": {},
