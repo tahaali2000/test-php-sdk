@@ -31,10 +31,9 @@ class ConfigurationDefaults
 
     public const RETRY_ON_TIMEOUT = true;
 
-    public const HTTP_STATUS_CODES_TO_RETRY =
-        [408, 413, 429, 500, 502, 503, 504, 521, 522, 524, 408, 413, 429, 500, 502, 503, 504, 521, 522, 524];
+    public const HTTP_STATUS_CODES_TO_RETRY = [408, 413, 429, 500, 502, 503, 504, 521, 522, 524];
 
-    public const HTTP_METHODS_TO_RETRY = ['GET', 'PUT', 'GET', 'PUT'];
+    public const HTTP_METHODS_TO_RETRY = ['GET', 'PUT'];
 
     public const ENVIRONMENT = Environment::SANDBOX;
 
