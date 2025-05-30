@@ -1,113 +1,46 @@
 
-# Getting Started with PayPal REST APIs
+# Getting Started with Cypress Test API
 
 ## Introduction
 
-An order represents a payment between two or more parties. Use the Orders API to create, update, retrieve, authorize, and capture orders., Call the Payments API to authorize payments, capture authorized payments, refund payments that have already been captured, and show payment information. Use the Payments API in conjunction with the <a href="/docs/api/orders/v2/">Orders API</a>. For more information, see the <a href="/docs/checkout/">PayPal Checkout Overview</a>., The Payment Method Tokens API saves payment methods so payers don't have to enter details for future transactions. Payers can check out faster or pay without being present after they agree to save a payment method.<br><br>The API associates a payment method with a temporary setup token. Pass the setup token to the API to exchange the setup token for a permanent token.<br><br>The permanent token represents a payment method that's saved to the vault. This token can be used repeatedly for checkout or recurring transactions such as subscriptions.<br><br>The Payment Method Tokens API is available in the US only.
+This is a sample API to demonstrate an OpenAPI spec with multiple endpoints and a custom model.
 
-Find out more here: [https://developer.paypal.com/docs/api/orders/v2/](https://developer.paypal.com/docs/api/orders/v2/)
+## Install the Package
 
-## Building
+Run the following command to install the package and automatically add the dependency to your composer.json file:
 
-The generated code has dependencies over external libraries like UniRest and JsonMapper. JsonMapper requires docblock annotations like `@var`, `@maps`, and `@factory` to map JSON responses with our class definitions. Hence the docblocks in generated code cannot be disabled by deactivating the PHP configurations like `opcache.save_comments`. These dependencies are defined in the `composer.json` file that comes with the SDK. To resolve these dependencies, we use the Composer package manager which requires PHP greater than or equal to 7.2 installed in your system. Visit [https://getcomposer.org/download/](https://getcomposer.org/download/) to download the installer file for Composer and run it in your system. Open command prompt and type `composer --version`. This should display the current version of the Composer installed if the installation was successful.
-
-* Using command line, navigate to the directory containing the generated files (including `composer.json`) for the SDK.
-* Run the command `composer install`. This should install all the required dependencies and create the `vendor` directory in your project directory.
-
-![Building SDK - Step 1](https://apidocs.io/illustration/php?workspaceFolder=PayPalRESTAPIs&step=installDependencies)
-
-### Configuring CURL Certificate Path in php.ini
-
-:information_source: **Note** This is for Windows users only.
-
-CURL used to include a list of accepted CAs, but no longer bundles ANY CA certs. So by default it will reject all SSL certificates as unverifiable. You will have to get your CA's cert and point curl at it. The steps are as follows:
-
-1. Download the certificate bundle (.pem file) from [https://curl.haxx.se/docs/caextract.html](https://curl.haxx.se/docs/caextract.html) on to your system.
-2. Add curl.cainfo = "PATH_TO/cacert.pem" to your php.ini file located in your php installation. “PATH_TO” must be an absolute path containing the .pem file.
-
-```
-[curl]; A default value for the CURLOPT_CAINFO option. This is required to be an
-; absolute path.
-curl.cainfo = PATH_TO/cacert.pem
+```bash
+composer require "tr/test-sdk:2.1.8"
 ```
 
-## Installation
+Or add it to the composer.json file manually as given below:
 
-The following section explains how to use the PayPalRESTAPIsLib library in a new project.
-
-### 1. Open Project in an IDE
-
-Open an IDE for PHP like PhpStorm. The basic workflow presented here is also applicable if you prefer using a different editor or IDE.
-
-![Open project in PHPStorm - Step 1](https://apidocs.io/illustration/php?workspaceFolder=PayPalRESTAPIs&step=openIDE)
-
-Click on `Open` in PhpStorm to browse to your generated SDK directory and then click `OK`.
-
-![Open project in PHPStorm - Step 2](https://apidocs.io/illustration/php?workspaceFolder=PayPalRESTAPIs&step=openProject0)
-
-### 2. Add a new Test Project
-
-Create a new directory by right clicking on the solution name as shown below:
-
-![Add a new project in PHPStorm - Step 1](https://apidocs.io/illustration/php?workspaceFolder=PayPalRESTAPIs&step=createDirectory)
-
-Name the directory as "test".
-
-![Add a new project in PHPStorm - Step 2](https://apidocs.io/illustration/php?workspaceFolder=PayPalRESTAPIs&step=nameDirectory)
-
-Add a PHP file to this project.
-
-![Add a new project in PHPStorm - Step 3](https://apidocs.io/illustration/php?workspaceFolder=PayPalRESTAPIs&step=createFile)
-
-Name it "testSDK".
-
-![Add a new project in PHPStorm - Step 4](https://apidocs.io/illustration/php?workspaceFolder=PayPalRESTAPIs&step=nameFile)
-
-Depending on your project setup, you might need to include composer's autoloader in your PHP code to enable auto loading of classes.
-
-```php
-require_once "vendor/autoload.php";
+```json
+"require": {
+    "tr/test-sdk": "2.1.8"
+}
 ```
 
-It is important that the path inside require_once correctly points to the file `autoload.php` inside the vendor directory created during dependency installations.
+You can also view the package at:
+https://packagist.org/packages/tr/test-sdk#2.1.8
 
-![Add a new project in PHPStorm - Step 5](https://apidocs.io/illustration/php?workspaceFolder=PayPalRESTAPIs&step=projectFiles)
+## Test the SDK
 
-After this you can add code to initialize the client library and acquire the instance of a Controller class. Sample code to initialize the client library and use the Controller methods is given in the subsequent sections.
+Unit tests in this SDK can be run using PHPUnit.
 
-### 3. Run the Test Project
+1. First install the dependencies using composer including the `require-dev` dependencies.
+2. Run `vendor\bin\phpunit --verbose` from commandline to execute tests. If you have installed PHPUnit globally, run tests using `phpunit --verbose` instead.
 
-To run your project you must set the Interpreter for your project. Interpreter is the PHP engine installed on your computer.
-
-Open `Settings` from `File` menu.
-
-![Run Test Project - Step 1](https://apidocs.io/illustration/php?workspaceFolder=PayPalRESTAPIs&step=openSettings)
-
-Select `PHP` from within `Languages & Frameworks`.
-
-![Run Test Project - Step 2](https://apidocs.io/illustration/php?workspaceFolder=PayPalRESTAPIs&step=setInterpreter0)
-
-Browse for Interpreters near the `Interpreter` option and choose your interpreter.
-
-![Run Test Project - Step 3](https://apidocs.io/illustration/php?workspaceFolder=PayPalRESTAPIs&step=setInterpreter1)
-
-Once the interpreter is selected, click `OK`.
-
-![Run Test Project - Step 4](https://apidocs.io/illustration/php?workspaceFolder=PayPalRESTAPIs&step=setInterpreter2)
-
-To run your project, right click on your PHP file inside your Test project and click on `Run`.
-
-![Run Test Project - Step 5](https://apidocs.io/illustration/php?workspaceFolder=PayPalRESTAPIs&step=runProject)
+You can change the PHPUnit test configuration in the `phpunit.xml` file.
 
 ## Initialize the API Client
 
-**_Note:_** Documentation for the client can be found [here.](https://www.github.com/tahaali2000/test-php-sdk/tree/9.5.6/doc/client.md)
+**_Note:_** Documentation for the client can be found [here.](https://www.github.com/tahaali2000/test-php-sdk/tree/2.1.8/doc/client.md)
 
 The following parameters are configurable for the API Client:
 
 | Parameter | Type | Description |
 |  --- | --- | --- |
-| environment | `Environment` | The API environment. <br> **Default: `Environment.SANDBOX`** |
 | timeout | `int` | Timeout for API calls in seconds.<br>*Default*: `0` |
 | enableRetries | `bool` | Whether to enable retries and backoff feature.<br>*Default*: `false` |
 | numberOfRetries | `int` | The number of retries to make.<br>*Default*: `0` |
@@ -115,23 +48,15 @@ The following parameters are configurable for the API Client:
 | backOffFactor | `float` | Exponential backoff factor to increase interval between retries.<br>*Default*: `2` |
 | maximumRetryWaitTime | `int` | The maximum wait time in seconds for overall retrying requests.<br>*Default*: `0` |
 | retryOnTimeout | `bool` | Whether to retry on request timeout.<br>*Default*: `true` |
-| httpStatusCodesToRetry | `array` | Http status codes to retry against.<br>*Default*: `408, 413, 429, 500, 502, 503, 504, 521, 522, 524` |
-| httpMethodsToRetry | `array` | Http methods to retry against.<br>*Default*: `'GET', 'PUT'` |
-| loggingConfiguration | [`LoggingConfigurationBuilder`](https://www.github.com/tahaali2000/test-php-sdk/tree/9.5.6/doc/logging-configuration-builder.md) | Represents the logging configurations for API calls |
-| proxyConfiguration | [`ProxyConfigurationBuilder`](https://www.github.com/tahaali2000/test-php-sdk/tree/9.5.6/doc/proxy-configuration-builder.md) | Represents the proxy configurations for API calls |
-| clientCredentialsAuth | [`ClientCredentialsAuth`](https://www.github.com/tahaali2000/test-php-sdk/tree/9.5.6/doc/auth/oauth-2-client-credentials-grant.md) | The Credentials Setter for OAuth 2 Client Credentials Grant |
+| httpStatusCodesToRetry | `array` | Http status codes to retry against.<br>*Default*: `413, 503, 504` |
+| httpMethodsToRetry | `array` | Http methods to retry against.<br>*Default*: `'GET', 'PUT', 'POST'` |
+| loggingConfiguration | [`LoggingConfigurationBuilder`](https://www.github.com/tahaali2000/test-php-sdk/tree/2.1.8/doc/logging-configuration-builder.md) | Represents the logging configurations for API calls |
+| proxyConfiguration | [`ProxyConfigurationBuilder`](https://www.github.com/tahaali2000/test-php-sdk/tree/2.1.8/doc/proxy-configuration-builder.md) | Represents the proxy configurations for API calls |
 
 The API client can be initialized as follows:
 
 ```php
-$client = PayPalRESTAPIsClientBuilder::init()
-    ->clientCredentialsAuthCredentials(
-        ClientCredentialsAuthCredentialsBuilder::init(
-            'OAuthClientId',
-            'OAuthClientSecret'
-        )
-    )
-    ->environment(Environment::SANDBOX)
+$client = CypressTestAPIClientBuilder::init()
     ->loggingConfiguration(
         LoggingConfigurationBuilder::init()
             ->level(LogLevel::INFO)
@@ -141,44 +66,24 @@ $client = PayPalRESTAPIsClientBuilder::init()
     ->build();
 ```
 
-## Environments
-
-The SDK can be configured to use a different environment for making API calls. Available environments are:
-
-### Fields
-
-| Name | Description |
-|  --- | --- |
-| Production | PayPal Live Environment |
-| Sandbox | **Default** PayPal Sandbox Environment |
-
-## Authorization
-
-This API uses the following authentication schemes.
-
-* [`Oauth2 (OAuth 2 Client Credentials Grant)`](https://www.github.com/tahaali2000/test-php-sdk/tree/9.5.6/doc/auth/oauth-2-client-credentials-grant.md)
-
 ## List of APIs
 
-* [Orders](https://www.github.com/tahaali2000/test-php-sdk/tree/9.5.6/doc/controllers/orders.md)
-* [Payments](https://www.github.com/tahaali2000/test-php-sdk/tree/9.5.6/doc/controllers/payments.md)
-* [Vault](https://www.github.com/tahaali2000/test-php-sdk/tree/9.5.6/doc/controllers/vault.md)
+* [API](https://www.github.com/tahaali2000/test-php-sdk/tree/2.1.8/doc/controllers/api.md)
 
 ## SDK Infrastructure
 
 ### Configuration
 
-* [ProxyConfigurationBuilder](https://www.github.com/tahaali2000/test-php-sdk/tree/9.5.6/doc/proxy-configuration-builder.md)
-* [LoggingConfigurationBuilder](https://www.github.com/tahaali2000/test-php-sdk/tree/9.5.6/doc/logging-configuration-builder.md)
-* [RequestLoggingConfigurationBuilder](https://www.github.com/tahaali2000/test-php-sdk/tree/9.5.6/doc/request-logging-configuration-builder.md)
-* [ResponseLoggingConfigurationBuilder](https://www.github.com/tahaali2000/test-php-sdk/tree/9.5.6/doc/response-logging-configuration-builder.md)
+* [ProxyConfigurationBuilder](https://www.github.com/tahaali2000/test-php-sdk/tree/2.1.8/doc/proxy-configuration-builder.md)
+* [LoggingConfigurationBuilder](https://www.github.com/tahaali2000/test-php-sdk/tree/2.1.8/doc/logging-configuration-builder.md)
+* [RequestLoggingConfigurationBuilder](https://www.github.com/tahaali2000/test-php-sdk/tree/2.1.8/doc/request-logging-configuration-builder.md)
+* [ResponseLoggingConfigurationBuilder](https://www.github.com/tahaali2000/test-php-sdk/tree/2.1.8/doc/response-logging-configuration-builder.md)
 
 ### HTTP
 
-* [HttpRequest](https://www.github.com/tahaali2000/test-php-sdk/tree/9.5.6/doc/http-request.md)
-* [HttpResponse](https://www.github.com/tahaali2000/test-php-sdk/tree/9.5.6/doc/http-response.md)
+* [HttpRequest](https://www.github.com/tahaali2000/test-php-sdk/tree/2.1.8/doc/http-request.md)
 
 ### Utilities
 
-* [ApiException](https://www.github.com/tahaali2000/test-php-sdk/tree/9.5.6/doc/api-exception.md)
+* [ApiResponse](https://www.github.com/tahaali2000/test-php-sdk/tree/2.1.8/doc/api-response.md)
 

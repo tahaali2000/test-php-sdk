@@ -1,8 +1,6 @@
 
 # Item
 
-The details for the items to be purchased.
-
 ## Structure
 
 `Item`
@@ -11,35 +9,54 @@ The details for the items to be purchased.
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `name` | `string` | Required | The item name or title.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `127` | getName(): string | setName(string name): void |
-| `unitAmount` | [`Money`](../../doc/models/money.md) | Required | The currency and amount for a financial transaction, such as a balance or payment due. | getUnitAmount(): Money | setUnitAmount(Money unitAmount): void |
-| `tax` | [`?Money`](../../doc/models/money.md) | Optional | The currency and amount for a financial transaction, such as a balance or payment due. | getTax(): ?Money | setTax(?Money tax): void |
-| `quantity` | `string` | Required | The item quantity. Must be a whole number.<br><br>**Constraints**: *Maximum Length*: `10`, *Pattern*: `^[1-9][0-9]{0,9}$` | getQuantity(): string | setQuantity(string quantity): void |
-| `description` | `?string` | Optional | The detailed item description.<br><br>**Constraints**: *Maximum Length*: `127` | getDescription(): ?string | setDescription(?string description): void |
-| `sku` | `?string` | Optional | The stock keeping unit (SKU) for the item.<br><br>**Constraints**: *Maximum Length*: `127` | getSku(): ?string | setSku(?string sku): void |
-| `url` | `?string` | Optional | The URL to the item being purchased. Visible to buyer and used in buyer experiences.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `2048` | getUrl(): ?string | setUrl(?string url): void |
-| `category` | [`?string(ItemCategory)`](../../doc/models/item-category.md) | Optional | The item category type.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `20` | getCategory(): ?string | setCategory(?string category): void |
-| `imageUrl` | `?string` | Optional | The URL of the item's image. File type and size restrictions apply. An image that violates these restrictions will not be honored.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `2048`, *Pattern*: `^(https:)([/\|.\|\w\|\s\|-])*\.(?:jpg\|gif\|png\|jpeg\|JPG\|GIF\|PNG\|JPEG)` | getImageUrl(): ?string | setImageUrl(?string imageUrl): void |
-| `upc` | [`?UniversalProductCode`](../../doc/models/universal-product-code.md) | Optional | The Universal Product Code of the item. | getUpc(): ?UniversalProductCode | setUpc(?UniversalProductCode upc): void |
+| `id` | `string` | Required | - | getId(): string | setId(string id): void |
+| `name` | `string` | Required | - | getName(): string | setName(string name): void |
+| `date` | `DateTime` | Required | - | getDate(): \DateTime | setDate(\DateTime date): void |
+| `dateTime` | `DateTime` | Required | - | getDateTime(): \DateTime | setDateTime(\DateTime dateTime): void |
+| `decimal` | `float` | Required | - | getDecimal(): float | setDecimal(float decimal): void |
+| `long` | `int` | Required | - | getLong(): int | setLong(int long): void |
+| `bool` | `bool` | Required | - | getBool(): bool | setBool(bool bool): void |
+| `customEnum` | [`string(CustomEnum)`](../../doc/models/custom-enum.md) | Required | - | getCustomEnum(): string | setCustomEnum(string customEnum): void |
+| `status` | [`?string(StatusEnum)`](../../doc/models/status-enum.md) | Optional | - | getStatus(): ?string | setStatus(?string status): void |
+| `jsonObject` | `array` | Required | A generic JSON object | getJsonObject(): array | setJsonObject(array jsonObject): void |
+| `animal` | `array` | Required | - | getAnimal(): array | setAnimal(array animal): void |
+| `map` | [`array<string,Message>`](../../doc/models/message.md) | Required | - | getMap(): array | setMap(array map): void |
 
 ## Example (as JSON)
 
 ```json
 {
-  "name": "name2",
-  "unit_amount": {
-    "currency_code": "currency_code2",
-    "value": "value8"
+  "id": "550e8400-e29b-41d4-a716-446655440000",
+  "name": "John Doe",
+  "date": "2024-05-24",
+  "dateTime": "05/24/2024 12:00:00",
+  "decimal": 1234.56,
+  "long": 1234567890123,
+  "bool": true,
+  "CustomEnum": "VALUE3",
+  "jsonObject": {
+    "key1": "val1",
+    "key2": "val2"
   },
-  "tax": {
-    "currency_code": "currency_code0",
-    "value": "value6"
+  "Animal": {
+    "key1": "val1",
+    "key2": "val2"
   },
-  "quantity": "quantity8",
-  "description": "description2",
-  "sku": "sku8",
-  "url": "url6",
-  "category": "DIGITAL_GOODS"
+  "Map": {
+    "key0": {
+      "code": 246,
+      "text": "text4"
+    },
+    "key1": {
+      "code": 246,
+      "text": "text4"
+    },
+    "key2": {
+      "code": 246,
+      "text": "text4"
+    }
+  },
+  "status": "active"
 }
 ```
 

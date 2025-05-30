@@ -22,10 +22,10 @@ To configure the SDK to use a proxy server, initialize the proxy configuration d
 ```php
 <?php
 
-use PayPalRESTAPIsLib\PayPalRESTAPIsClientBuilder;
-use PayPalRESTAPIsLib\Proxy\ProxyConfigurationBuilder;
+use CypressTestAPILib\CypressTestAPIClientBuilder;
+use CypressTestAPILib\Proxy\ProxyConfigurationBuilder;
 // initialize the sdk client using a proxy configuration
-$client = PayPalRESTAPIsClientBuilder::init()
+$client = CypressTestAPIClientBuilder::init()
     ->proxyConfiguration(
         ProxyConfigurationBuilder::init('http://localhost')
             ->port(8080)

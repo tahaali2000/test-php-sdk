@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PayPalRESTAPIsLib\Proxy;
+namespace CypressTestAPILib\Proxy;
 
-use PayPalRESTAPIsLib\ConfigurationDefaults;
+use CypressTestAPILib\ConfigurationDefaults;
 
 class ProxyConfigurationBuilder
 {
